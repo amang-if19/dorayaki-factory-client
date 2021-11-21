@@ -29,7 +29,7 @@ function Sidebar() {
           </Link>
           <Link>
             <AiOutlinePieChart />
-            <h3>Daftar Request</h3>
+            <h3><a href="#2">Daftar Request</a></h3>
           </Link>
         </Links>
         <ContactContainer>
@@ -98,8 +98,13 @@ const Link = styled.li`
   gap: 1rem;
   color: #e4e4e4;
   cursor: pointer;
-  h3 {
-    font-weight: 300;
+  a {
+    font-weigth : 300;
+    text-decoration: none;
+    color: #e4e4e4;
+  }
+  h3{
+    font-weight : 300;
   }
   svg {
     font-size: 1.1rem;
