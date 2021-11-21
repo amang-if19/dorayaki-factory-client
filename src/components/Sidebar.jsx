@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 // import Badge from "./Badge";
 import { Navigation } from "react-minimal-side-navigation";
+import { useLocation, useHistory } from "react-router-dom";
 import AvatarImage from "../assets/avatarImage.png";
 // import { RiFileCopyLine } from "react-icons/ri";
 // import { FaWallet } from "react-icons/fa";
@@ -11,8 +12,10 @@ import AvatarImage from "../assets/avatarImage.png";
 // import { darkThemeColor } from "../utils";
 import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
 
-
 function Sidebar() {
+  const history = useHistory();
+  const location = useLocation();
+
   return (
     <Container> 
       <ProfileContainer>
@@ -22,49 +25,34 @@ function Sidebar() {
       <LinksContainer>
       <>
         <Navigation
-        
-        activeItemId="/management/members"
+        activeItemId={location.pathname}
             onSelect={({itemId}) => {
               // maybe push to the route
+              history.push(itemId);
             }}
             items={[
               {
                 title: 'Home',
-                itemId: '/home',
+                itemId: '/',
               },
 
               {
                 title: 'Lihat Daftar',
-                itemId: '/daftar',
                 subNav: [
                   {
-                    title: 'Projects',
-                    itemId: '/management/projects',
-                  },
-                  {
                     title: 'Bahan Baku',
-                    itemId: '/bahan-baku/daftar',
+                    itemId: '/daftar-bahan-baku',
                   },
                   {
                     title: 'Resep',
-                    itemId: '/resep/daftard,ar',
+                    itemId: '/daftar-resep',
                   },
                   {
                     title: 'Request',
-                    itemId: '/request/daftar',
+                    itemId: '/daftar-request',
                   },
                 ],  
               },            
-              {
-                title: 'Request',
-                itemId: '/request',
-                subNav: [
-                  {
-                    title: 'Teams',
-                    itemId: '/management/teams',
-                  },
-                ],
-              },
             ]}
             />
           </>
