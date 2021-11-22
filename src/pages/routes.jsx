@@ -4,6 +4,7 @@ import App from "./App";
 import BahanBaku from "./bahan-baku";
 import Resep from "./resep-dorayaki";
 import Request from "./request";
+import Pesanan from "./pesanan";
 
 const Routes = () => {
     return (
@@ -17,6 +18,9 @@ const Routes = () => {
                 </Route>
                 <Route path ="/daftar-request" >
                     { <Request/>}
+                </Route>
+                <Route path ="/pesanan-dorayaki" >
+                    { <Pesanan/>}
                 </Route>
                 <Route path="/">
                     { <App/> }
