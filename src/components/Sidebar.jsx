@@ -33,12 +33,16 @@ function Sidebar() {
             items={[
               {
                 title: 'Home',
-                itemId: '/',
+                itemId: '/home',
               },
 
               {
                 title: 'Lihat Daftar',
                 subNav: [
+                  {
+                    title: 'Pesanan',
+                    itemId: '/pesanan-dorayaki',
+                  },
                   {
                     title: 'Bahan Baku',
                     itemId: '/daftar-bahan-baku',

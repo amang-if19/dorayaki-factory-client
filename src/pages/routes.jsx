@@ -5,6 +5,7 @@ import BahanBaku from "./bahan-baku";
 import Resep from "./resep-dorayaki";
 import Request from "./request";
 import Pesanan from "./pesanan";
+import Login from "./login";
 
 const Routes = () => {
     return (
@@ -22,8 +23,11 @@ const Routes = () => {
                 <Route path ="/pesanan-dorayaki" >
                     { <Pesanan/>}
                 </Route>
+                <Route path ="/home">
+                    { <App/>}
+                </Route>
                 <Route path="/">
-                    { <App/> }
+                    { <Login/> }
                 </Route>
             </Switch>
         </BrowserRouter>

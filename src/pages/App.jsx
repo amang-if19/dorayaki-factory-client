@@ -1,7 +1,7 @@
 import '../App.css';
-import Container from "../components/Container"
 import Sidebar from "../components/Sidebar";
 import MainContent from "../components/MainContent";
+import Container from '../components/Container';
 
 function App() {
   return (
