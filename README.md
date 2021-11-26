@@ -1,20 +1,27 @@
+# Dorayaki-Factory-Client
+> A client service for dorayaki factory using ReactJS
 
+## Screenshot
+### Halaman Login
+![Halaman Login](screenshot/login.png)
 
-## Yarn
+### Homepage
+![Homepage](screenshot/homepage.png)
 
-In the project directory, u can add dependency styled-component
+### Halaman Resep
+![Halaman Resep](screenshot/daftar-resep.png)
 
-### `yarn add react-icons styled-components`
+### Halaman Bahan Baku
+![Halaman Bahan Baku](screenshot/daftar-bahan-baku.png)
 
-## Available Scripts
+### Halaman Daftar Request
+![Halaman Daftar Baku](screenshot/daftar-request)
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
+## Pembagian Tugas
+```
+Halaman Login: 13519148, 13519024
+Homepage: 13519024
+Halaman Resep: 13519024
+Halaman Bahan Baku: 13519024
+Halaman Daftar Request: 13519122
+```
