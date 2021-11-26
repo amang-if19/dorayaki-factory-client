@@ -4,7 +4,7 @@ import MelihatDaftarData from '../components/MelihatDaftarData';
 import Sidebar from "../components/Sidebar";
 import Container from "../components/Container"
 
-const BahanBaku = () => {
+const BahanBaku = () => { 
   const bahan = {
     'Nama' : [],
     'Stok' : [],
@@ -27,7 +27,7 @@ const BahanBaku = () => {
       }
     }
   }
-
+  
   xmlhttp.send()
 
   return (
@@ -36,7 +36,7 @@ const BahanBaku = () => {
       <div className='h3 text-center'>Bahan Baku</div>
       <MelihatDaftarData data={bahan} />
     </Container>
-  )
+  );
 }
 
 export default BahanBaku;
