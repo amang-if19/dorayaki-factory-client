@@ -6,7 +6,7 @@ import Container from "../components/Container"
 
 const Request = () => {
   const request = {
-    'Dorayaki ID' : [],
+    'Nama Dorayaki' : [],
     'Quantity' : [],
     'Action': [],
   }
@@ -20,10 +20,22 @@ const Request = () => {
         const coba = JSON.parse(xmlhttp.responseText);
         console.log(coba);
         coba.forEach((element) => {
-          console.log(element);
-          request["Dorayaki ID"].push(element.dorayakiId);
           request["Quantity"].push(element.quantity);
           request["Action"].push(element.action);
+          var xmlhttp1 = new XMLHttpRequest();
+          xmlhttp1.open('GET', 'http://localhost:8000/dorayaki/' + element.dorayakiId, false);
+
+          xmlhttp1.onreadystatechange = () => {
+            if(xmlhttp1.readyState === 4) {
+              if(xmlhttp1.status === 200) {
+                const dorayaki = JSON.parse(xmlhttp1.responseText);
+                request["Nama Dorayaki"].push(dorayaki.name);
+              }
+            }
+          }
+
+          xmlhttp1.send();
+          
         });
       }
     }
