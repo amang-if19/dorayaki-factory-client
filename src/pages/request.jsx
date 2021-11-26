@@ -3,12 +3,15 @@ import React from 'react';
 import MelihatDaftarData from '../components/MelihatDaftarData';
 import Sidebar from "../components/Sidebar";
 import Container from "../components/Container"
+import { Button } from "react-bootstrap";
 
 const Request = () => {
   const request = {
     'Nama Dorayaki' : [],
     'Quantity' : [],
     'Action': [],
+    'Accept': [],
+    'Decline': [],
   }
 
   var xmlhttp = new XMLHttpRequest();
@@ -22,6 +25,13 @@ const Request = () => {
         coba.forEach((element) => {
           request["Quantity"].push(element.quantity);
           request["Action"].push(element.action);
+          if(!element.action){
+            request['Accept'].push(<Button>Accept</Button>)
+            request['Decline'].push(<Button>Decline</Button>)
+          } else{
+            request['Accept'].push(null)
+            request['Decline'].push(null)
+          }
           var xmlhttp1 = new XMLHttpRequest();
           xmlhttp1.open('GET', 'http://localhost:8000/dorayaki/' + element.dorayakiId, false);
 
