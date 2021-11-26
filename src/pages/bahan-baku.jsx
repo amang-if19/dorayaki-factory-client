@@ -4,20 +4,31 @@ import MelihatDaftarData from '../components/MelihatDaftarData';
 import Sidebar from "../components/Sidebar";
 import Container from "../components/Container"
 
-const axios = require('axios').default;
-
 const BahanBaku = () => {
   const bahan = {
-    'Nama Bahan' : [],
-    'Banyaknya' : [],
+    'Nama' : [],
+    'Stok' : [],
+    'Unit': [],
   }
 
-  axios.get('http://localhost:8000/bahan-baku')
-    .then((result) => {
-      console.log(result);
-      bahan['Nama Bahan'].push(result.data[0].name);
-      bahan['Banyaknya'].push(result.data[0].stok);
-    }); 
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('GET', 'http://localhost:8000/bahan-baku', false);
+
+  xmlhttp.onreadystatechange = () => {
+    if (xmlhttp.readyState === 4) {
+      if (xmlhttp.status === 200) {
+        const coba = JSON.parse(xmlhttp.responseText);
+        console.log(coba);
+        coba.forEach((element) => {
+          bahan["Nama"].push(element.name);
+          bahan["Stok"].push(element.stok);
+          bahan["Unit"].push(element.unit);
+        });
+      }
+    }
+  }
+
+  xmlhttp.send()
 
   return (
     <Container>
