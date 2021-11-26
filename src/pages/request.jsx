@@ -13,6 +13,14 @@ const Request = () => {
     'Accept': [],
     'Decline': [],
   }
+
+  function callAjax(id, body){
+    console.log(id, body);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('PUT', 'http://localhost:8000/request/' + id, false);
+ 
+    xmlhttp.send(body);
+  }
   
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open('GET', 'http://localhost:8000/request', false);
@@ -26,8 +34,8 @@ const Request = () => {
           request["Quantity"].push(element.quantity);
           request["Action"].push(element.action);
           if(!element.action){
-            request['Accept'].push(<Button>Accept</Button>)
-            request['Decline'].push(<Button>Decline</Button>)
+            request['Accept'].push(<Button onClick={callAjax(element.id, {action: 'ACCEPT'})}>Accept</Button>)
+            request['Decline'].push(<Button onClick={callAjax(element.id, {action: 'DECLINE'})}>Decline</Button>)
           } else{
             request['Accept'].push(null)
             request['Decline'].push(null)
