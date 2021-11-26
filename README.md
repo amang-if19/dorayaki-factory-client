@@ -15,7 +15,7 @@
 ![Halaman Bahan Baku](screenshot/daftar-bahan-baku.png)
 
 ### Halaman Daftar Request
-![Halaman Daftar Baku](screenshot/daftar-request)
+![Halaman Daftar Request](screenshot/daftar-request.png)
 
 ## Pembagian Tugas
 ```
