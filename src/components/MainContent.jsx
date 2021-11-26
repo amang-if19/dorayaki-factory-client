@@ -7,8 +7,11 @@ function MainContent() {
       <Container>
           <Navbar />
           <SubContainer>
-              <SectionOne>
-                  <ColumnOne1></ColumnOne1>
+              <SectionOne>  
+                <div className="text-center">
+                  <Text className='h2'>Selamat Datang di Web Dorayaki Factory!</Text>
+                  <Text className='text-muted'>Pada web ini Anda bisa melihat dab mencari tahu tentang Dorayaki :D</Text>
+                </div>
               </SectionOne>
           </SubContainer>
       </Container>
@@ -28,11 +31,33 @@ const Container = styled.div`
   }
 `;
 
+const SubContainer = styled.div`
+  margin: 0.5rem 0;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  @media screen and (min-width: 320px) and (max-width: 1080px) {
+    height: 100%;
+  }
+`;
 
-const SubContainer = styled.div``;
+const SectionOne = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 40%;
+  gap: 2rem;
+  width: 100%;
+  @media screen and (min-width: 320px) and (max-width: 1080px) {
+    flex-direction: column;
+    align-items: center;
+    height: max-content;
+  }
+`;
 
-const SectionOne = styled.div``;
-
-const ColumnOne1 = styled.div``;
+const Text = styled.div`
+  text-align : center;
+`;
 
 export default MainContent;
