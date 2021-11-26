@@ -27,7 +27,7 @@ const BahanBaku = () => {
       }
     }
   }
-
+  
   xmlhttp.send()
 
   return (

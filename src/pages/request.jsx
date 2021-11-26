@@ -10,7 +10,7 @@ const Request = () => {
     'Quantity' : [],
     'Action': [],
   }
-
+  
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open('GET', 'http://localhost:8000/request', false);
 
