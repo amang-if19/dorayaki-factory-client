@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 // import Badge from "./Badge";
 import { Navigation } from "react-minimal-side-navigation";
 import { useLocation, useHistory } from "react-router-dom";
@@ -62,7 +63,7 @@ function Sidebar() {
           </>
         <ContactContainer>
           <span>Logout Accout ?</span>
-          <a href="#">Click here !</a>
+          <Link to="/">Click here !</Link>
         </ContactContainer>
       </LinksContainer>
     </Container>
