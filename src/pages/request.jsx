@@ -6,9 +6,30 @@ import Container from "../components/Container"
 
 const Request = () => {
   const request = {
-    'Nama request' : ['Ayam', 'Bebek', 'Cacing'],
-    'Banyaknya' : [1,2,3]
+    'Dorayaki ID' : [],
+    'Quantity' : [],
+    'Action': [],
   }
+
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('GET', 'http://localhost:8000/request', false);
+
+  xmlhttp.onreadystatechange = () => {
+    if (xmlhttp.readyState === 4) {
+      if (xmlhttp.status === 200) {
+        const coba = JSON.parse(xmlhttp.responseText);
+        console.log(coba);
+        coba.forEach((element) => {
+          console.log(element);
+          request["Dorayaki ID"].push(element.dorayakiId);
+          request["Quantity"].push(element.quantity);
+          request["Action"].push(element.action);
+        });
+      }
+    }
+  }
+  
+  xmlhttp.send()
 
   return (
     <Container>
