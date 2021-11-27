@@ -10,16 +10,17 @@ const Request = () => {
     'Nama Dorayaki' : [],
     'Quantity' : [],
     'Action': [],
-    'Accept': [],
-    'Decline': [],
+    '': [],
+    ' ': [],
   }
 
   function callAjax(id, body){
-    console.log(id, body);
     var xmlhttp = new XMLHttpRequest();
+    const data = JSON.stringify(body);
     xmlhttp.open('PUT', 'http://localhost:8000/request/' + id, false);
- 
-    xmlhttp.send(body);
+	  xmlhttp.setRequestHeader('Content-type','application/json; charset=utf-8');
+    xmlhttp.send(data);
+    window.location.reload();
   }
   
   var xmlhttp = new XMLHttpRequest();
@@ -28,17 +29,16 @@ const Request = () => {
   xmlhttp.onreadystatechange = () => {
     if (xmlhttp.readyState === 4) {
       if (xmlhttp.status === 200) {
-        const coba = JSON.parse(xmlhttp.responseText);
-        console.log(coba);
-        coba.forEach((element) => {
+        const jsonData = JSON.parse(xmlhttp.responseText);
+        jsonData.forEach((element) => {
           request["Quantity"].push(element.quantity);
           request["Action"].push(element.action);
           if(!element.action){
-            request['Accept'].push(<Button onClick={callAjax(element.id, {action: 'ACCEPT'})}>Accept</Button>)
-            request['Decline'].push(<Button onClick={callAjax(element.id, {action: 'DECLINE'})}>Decline</Button>)
+            request[''].push(<Button onClick={() => callAjax(element.id, {action: 'ACCEPT'})}>Accept</Button>)
+            request[' '].push(<Button onClick={() => callAjax(element.id, {action: 'DECLINE'})}>Decline</Button>)
           } else{
-            request['Accept'].push(null)
-            request['Decline'].push(null)
+            request[''].push(null)
+            request[' '].push(null)
           }
           var xmlhttp1 = new XMLHttpRequest();
           xmlhttp1.open('GET', 'http://localhost:8000/dorayaki/' + element.dorayakiId, false);
