@@ -1,16 +1,10 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 import { Button, Form } from "react-bootstrap";
-import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import './login.css';
 
 
 const Login = () => {
-    // let [username, setUsername] = useState("");
-    // let [password, setPassword] = useState("");
-    // let history = useHistory();
-
     return (
         <div className="Login">
             <div className="Login-container">
