@@ -4,8 +4,11 @@ import MelihatDaftarData from '../components/MelihatDaftarData';
 import Sidebar from "../components/Sidebar";
 import Container from "../components/Container"
 import { Button } from "react-bootstrap";
+import baseUrl from "../config";
 
 const Request = () => {
+	const requestUrl = baseUrl + '/request/';
+	const dorayakiUrl = baseUrl + '/dorayaki/';
   const request = {
     'Nama Dorayaki' : [],
     'Quantity' : [],
@@ -17,14 +20,14 @@ const Request = () => {
   function callAjax(id, body){
     var xmlhttp = new XMLHttpRequest();
     const data = JSON.stringify(body);
-    xmlhttp.open('PUT', 'http://localhost:8000/request/' + id, false);
+    xmlhttp.open('PUT', requestUrl + id, false);
 	  xmlhttp.setRequestHeader('Content-type','application/json; charset=utf-8');
     xmlhttp.send(data);
     window.location.reload();
   }
   
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('GET', 'http://localhost:8000/request', false);
+  xmlhttp.open('GET', requestUrl, false);
 
   xmlhttp.onreadystatechange = () => {
     if (xmlhttp.readyState === 4) {
@@ -41,7 +44,7 @@ const Request = () => {
             request[' '].push(null)
           }
           var xmlhttp1 = new XMLHttpRequest();
-          xmlhttp1.open('GET', 'http://localhost:8000/dorayaki/' + element.dorayakiId, false);
+          xmlhttp1.open('GET', dorayakiUrl + element.dorayakiId, false);
 
           xmlhttp1.onreadystatechange = () => {
             if(xmlhttp1.readyState === 4) {

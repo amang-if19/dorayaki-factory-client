@@ -3,14 +3,17 @@ import React from 'react';
 import MelihatDaftarData from '../components/MelihatDaftarData';
 import Sidebar from "../components/Sidebar";
 import Container from "../components/Container"
+import baseUrl from "../config";
 
 const Resep = () => {
+	const dorayakiUrl = baseUrl + '/dorayaki/';
+	const resepUrl = baseUrl + '/resep/';
   const resep = {
     'Nama Dorayaki' : [],
     'Nama Resep' : []
   }
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('GET', 'http://localhost:8000/dorayaki', false);
+  xmlhttp.open('GET', dorayakiUrl, false);
 
   xmlhttp.onreadystatechange = () => {
     if (xmlhttp.readyState === 4) {
@@ -19,7 +22,7 @@ const Resep = () => {
         coba.forEach((element) => {
           resep["Nama Dorayaki"].push(element.name);
           var xmlhttp1 = new XMLHttpRequest()
-          xmlhttp1.open('GET', 'http://localhost:8000/resep/' + element.resepId, false);
+          xmlhttp1.open('GET', resepUrl + element.resepId, false);
 
           xmlhttp1.onreadystatechange = () => {
             if (xmlhttp1.readyState === 4) {

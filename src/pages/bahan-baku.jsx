@@ -2,9 +2,11 @@ import React from 'react';
 
 import MelihatDaftarData from '../components/MelihatDaftarData';
 import Sidebar from "../components/Sidebar";
-import Container from "../components/Container"
+import Container from "../components/Container";
+import baseUrl from "../config";
 
 const BahanBaku = () => { 
+  const bahanBakuUrl = baseUrl + '/bahan-baku';
   const bahan = {
     'Nama' : [],
     'Stok' : [],
@@ -12,13 +14,12 @@ const BahanBaku = () => {
   }
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('GET', 'http://localhost:8000/bahan-baku', false);
+  xmlhttp.open('GET', bahanBakuUrl, false);
 
   xmlhttp.onreadystatechange = () => {
     if (xmlhttp.readyState === 4) {
       if (xmlhttp.status === 200) {
         const coba = JSON.parse(xmlhttp.responseText);
-        console.log(coba);
         coba.forEach((element) => {
           bahan["Nama"].push(element.name);
           bahan["Stok"].push(element.stok);

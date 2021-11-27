@@ -35,7 +35,6 @@ const MelihatDaftarData = (props) => {
 	};
 	
 	const keyLen = data[dataKeys[0]].length;
-	console.log(dataKeys[0]);
 	let keyIndices = [];
 	for (let i = 0; i < keyLen; i++) {
 		keyIndices.push(i);
