@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import App from "./App";
 import BahanBaku from "./bahan-baku";
 import Resep from "./resep-dorayaki";
@@ -9,37 +9,46 @@ import Login from "./login";
 import CreateBahanBaku from "./create-bahan-baku";
 import CreateResep from "./create-resep";
 import EditBahanBaku from "./edit-bahan-baku";
+import cookies from "../cookie";
 
 const Routes = () => {
+    const checkCookies = () => {
+        if (cookies.get('token')) {
+            return true;
+        }
+
+        return false;
+    }
+
     return (
         <BrowserRouter>
             <Switch>
                 <Route path ="/daftar-bahan-baku" >
-                    { <BahanBaku/>}
+                    { checkCookies() ? <BahanBaku/> : <Redirect to='/'/> }
                 </Route>
                 <Route path ="/create-bahan-baku">
-                    { <CreateBahanBaku/> }
+                    { checkCookies() ? <CreateBahanBaku/> : <Redirect to='/'/> }
                 </Route>
                 <Route path ="/edit-bahan-baku/:id">
-                    { <EditBahanBaku/> }
+                    { checkCookies() ? <EditBahanBaku/> : <Redirect to='/'/> }
                 </Route>
                 <Route path ="/daftar-resep" >
-                    { <Resep/>}
+                    { checkCookies() ? <Resep/> : <Redirect to='/'/> }
                 </Route>
                 <Route path ="/resep-detail/:id">
-                    { <ResepDetail/> }
+                    { checkCookies() ? <ResepDetail/> : <Redirect to='/'/> }
                 </Route>
                 <Route path ="/create-resep">
-                    { <CreateResep/> }
+                    { checkCookies() ? <CreateResep/> : <Redirect to='/'/> }
                 </Route>
                 <Route path ="/daftar-request" >
-                    { <Request/>}
+                    { checkCookies() ? <Request/> : <Redirect to='/'/>}
                 </Route>
                 <Route path ="/home">
-                    { <App/>}
+                    { checkCookies() ? <App/> : <Redirect to='/'/> }
                 </Route>
                 <Route path="/">
-                    { <Login/> }
+                    { checkCookies() ? <Redirect to='/home'/> : <Login/> }
                 </Route>
             </Switch>
         </BrowserRouter>

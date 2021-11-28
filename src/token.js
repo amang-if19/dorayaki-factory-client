@@ -1,4 +1,5 @@
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYzODA5Mjg0NywiZXhwIjoxNjM4MTAwMDQ3fQ.uzm4mWwm97L4AJlK3xqARqPNCwbd-zavwhwbTVRxORU";
+import cookies from "./cookie";
 
+const token = cookies.get('token');
 
 export default token;

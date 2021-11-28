@@ -1,15 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-// import Badge from "./Badge";
 import { Navigation } from "react-minimal-side-navigation";
 import { useLocation, useHistory } from "react-router-dom";
 import AvatarImage from "../assets/avatarImage.png";
 import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
+import { Button } from "react-bootstrap";
+import cookies from "../cookie";
 
 function Sidebar() {
   const history = useHistory();
   const location = useLocation();
+
+  const handleLogout = () => {
+    cookies.remove('token');
+    window.location.reload();
+  }
 
   return (
     <Container> 
@@ -66,7 +71,7 @@ function Sidebar() {
           </>
         <ContactContainer>
           <span>Logout Accout ?</span>
-          <Link to="/">Click here !</Link>
+          <Button onClick={handleLogout}>Click here !</Button>
         </ContactContainer>
       </LinksContainer>
     </Container>
