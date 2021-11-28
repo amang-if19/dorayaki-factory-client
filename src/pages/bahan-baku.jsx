@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import MelihatDaftarData from '../components/MelihatDaftarData';
 import Sidebar from "../components/Sidebar";
@@ -11,6 +12,7 @@ const BahanBaku = () => {
     'Nama' : [],
     'Stok' : [],
     'Unit': [],
+    '': [],
   }
 
   var xmlhttp = new XMLHttpRequest();
@@ -24,6 +26,8 @@ const BahanBaku = () => {
           bahan["Nama"].push(element.name);
           bahan["Stok"].push(element.stok);
           bahan["Unit"].push(element.unit);
+          const urlEdit = '/edit-bahan-baku/' + element.id;
+          bahan[''].push(<Link to={urlEdit}>Edit</Link>)
         });
       }
     }

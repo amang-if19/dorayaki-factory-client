@@ -8,6 +8,7 @@ import Request from "./request";
 import Login from "./login";
 import CreateBahanBaku from "./create-bahan-baku";
 import CreateResep from "./create-resep";
+import EditBahanBaku from "./edit-bahan-baku";
 
 const Routes = () => {
     return (
@@ -18,6 +19,9 @@ const Routes = () => {
                 </Route>
                 <Route path ="/create-bahan-baku">
                     { <CreateBahanBaku/> }
+                </Route>
+                <Route path ="/edit-bahan-baku/:id">
+                    { <EditBahanBaku/> }
                 </Route>
                 <Route path ="/daftar-resep" >
                     { <Resep/>}
