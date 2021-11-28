@@ -21,6 +21,14 @@ const Request = () => {
     var xmlhttp = new XMLHttpRequest();
     const data = JSON.stringify(body);
     xmlhttp.open('PUT', requestUrl + id, false);
+    xmlhttp.onreadystatechange = () => {
+      if(xmlhttp.readyState === 4) {
+        if(xmlhttp.status === 200) {
+          const msg = JSON.parse(xmlhttp.responseText);
+          alert(msg.message);
+        }
+      }
+    }
 	  xmlhttp.setRequestHeader('Content-type','application/json; charset=utf-8');
     xmlhttp.send(data);
     window.location.reload();
