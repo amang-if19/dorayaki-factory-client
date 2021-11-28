@@ -5,12 +5,6 @@ import { Link } from "react-router-dom";
 import { Navigation } from "react-minimal-side-navigation";
 import { useLocation, useHistory } from "react-router-dom";
 import AvatarImage from "../assets/avatarImage.png";
-// import { RiFileCopyLine } from "react-icons/ri";
-// import { FaWallet } from "react-icons/fa";
-// import { AiOutlinePieChart } from "react-icons/ai";
-// import { AiFillHome } from "react-icons/ai";
-// import { BsJournalCheck } from "react-icons/bs";
-// import { darkThemeColor } from "../utils";
 import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
 
 function Sidebar() {
@@ -41,10 +35,6 @@ function Sidebar() {
                 title: 'Lihat Daftar',
                 subNav: [
                   {
-                    title: 'Pesanan',
-                    itemId: '/pesanan-dorayaki',
-                  },
-                  {
                     title: 'Bahan Baku',
                     itemId: '/daftar-bahan-baku',
                   },
@@ -56,8 +46,21 @@ function Sidebar() {
                     title: 'Request',
                     itemId: '/daftar-request',
                   },
+                ],    
+              },    
+              {
+                title: 'Produksi',
+                subNav: [
+                  {
+                    title: 'Tambah Bahan Baku',
+                    itemId: '/create-bahan-baku',
+                  },
+                  {
+                    title: 'Tambah Resep',
+                    itemId: '/create-resep',
+                  },
                 ],  
-              },            
+              }        
             ]}
             />
           </>

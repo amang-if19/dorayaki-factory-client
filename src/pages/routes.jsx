@@ -5,8 +5,9 @@ import BahanBaku from "./bahan-baku";
 import Resep from "./resep-dorayaki";
 import ResepDetail from "./resep-detail";
 import Request from "./request";
-import Pesanan from "./pesanan";
 import Login from "./login";
+import CreateBahanBaku from "./create-bahan-baku";
+import CreateResep from "./create-resep";
 
 const Routes = () => {
     return (
@@ -15,17 +16,20 @@ const Routes = () => {
                 <Route path ="/daftar-bahan-baku" >
                     { <BahanBaku/>}
                 </Route>
+                <Route path ="/create-bahan-baku">
+                    { <CreateBahanBaku/> }
+                </Route>
                 <Route path ="/daftar-resep" >
                     { <Resep/>}
                 </Route>
                 <Route path ="/resep-detail/:id">
                     { <ResepDetail/> }
                 </Route>
+                <Route path ="/create-resep">
+                    { <CreateResep/> }
+                </Route>
                 <Route path ="/daftar-request" >
                     { <Request/>}
-                </Route>
-                <Route path ="/pesanan-dorayaki" >
-                    { <Pesanan/>}
                 </Route>
                 <Route path ="/home">
                     { <App/>}
