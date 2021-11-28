@@ -1,7 +1,7 @@
 import env from "react-dotenv";
 
-const HOST = env.BACKEND_HOST;
-const PORT = env.BACKEND_PORT;
+const HOST = env ? env.BACKEND_HOST : 'localhost';
+const PORT = env ? env.BACKEND_PORT : 8000; 
 
 const baseUrl = 'http://' + HOST + ':' + PORT;
 

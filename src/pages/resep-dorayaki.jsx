@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import MelihatDaftarData from '../components/MelihatDaftarData';
 import Sidebar from "../components/Sidebar";
@@ -10,7 +11,8 @@ const Resep = () => {
 	const resepUrl = baseUrl + '/resep/';
   const resep = {
     'Nama Dorayaki' : [],
-    'Nama Resep' : []
+    'Nama Resep' : [],
+    '': [],
   }
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open('GET', dorayakiUrl, false);
@@ -32,6 +34,8 @@ const Resep = () => {
               }
             }
           }
+          const urlDetail = '/resep-detail/' + element.id;
+          resep[''].push(<Link to={urlDetail}>Detail</Link>);
 
           xmlhttp1.send();
           

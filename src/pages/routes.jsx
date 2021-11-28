@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "./App";
 import BahanBaku from "./bahan-baku";
 import Resep from "./resep-dorayaki";
+import ResepDetail from "./resep-detail";
 import Request from "./request";
 import Pesanan from "./pesanan";
 import Login from "./login";
@@ -16,6 +17,9 @@ const Routes = () => {
                 </Route>
                 <Route path ="/daftar-resep" >
                     { <Resep/>}
+                </Route>
+                <Route path ="/resep-detail/:id">
+                    { <ResepDetail/> }
                 </Route>
                 <Route path ="/daftar-request" >
                     { <Request/>}
