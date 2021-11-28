@@ -3,6 +3,7 @@ import React from 'react';
 import Sidebar from "../components/Sidebar";
 import Container from "../components/Container";
 import baseUrl from "../config";
+import token from "../token";
 
 const CreateBahanBaku = () => {
     const bahanBakuUrl = baseUrl + '/bahan-baku';
@@ -13,7 +14,6 @@ const CreateBahanBaku = () => {
         const stok = parseInt(document.getElementById("stok").value);
         const unit = document.getElementById('unit').value;
         // TODO: Ambil token dari cookie
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYzODA4MTQ4OSwiZXhwIjoxNjM4MDg4Njg5fQ.9SB2eEdK_h3XpYgPy6TP6PYjAz1u8e7YdFcY-tVSwI8";
 
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.open('POST', bahanBakuUrl, false);
@@ -27,10 +27,8 @@ const CreateBahanBaku = () => {
         
         xmlhttp.onreadystatechange = () => {
             if(xmlhttp.readyState === 4){
-                if(xmlhttp.status === 201){
-                    const msg = JSON.parse(xmlhttp.responseText);
-                    alert(msg.message);
-                }
+              const msg = JSON.parse(xmlhttp.responseText);
+              alert(msg.message);
             }
         }
 

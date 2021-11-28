@@ -3,6 +3,7 @@ import React from 'react';
 import Sidebar from "../components/Sidebar";
 import Container from "../components/Container";
 import baseUrl from '../config';
+import token from '../token';
 
 const CreateResep = () => { 
   const bahanBakuUrl = baseUrl + '/bahan-baku/';
@@ -41,7 +42,6 @@ const CreateResep = () => {
 
   const addResep = () => {
     const resepName = document.getElementById('resep').value;
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYzODA4OTc3NSwiZXhwIjoxNjM4MDk2OTc1fQ.peUAL-01368Mi0cMqDpVEShWh-lUK2LQRxO_Uag2TVI";
 
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST', resepUrl, false);

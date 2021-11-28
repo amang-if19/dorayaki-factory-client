@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import Sidebar from "../components/Sidebar";
 import Container from "../components/Container"
 import baseUrl from "../config";
+import token from '../token';
 
 const EditBahanBaku = () => {
 
@@ -14,7 +15,6 @@ const EditBahanBaku = () => {
   const editBahanBaku = () => {
     const stok = parseInt(document.getElementById("stok").value);
     // TODO: Ambil token dari cookie
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYzODA4MTQ4OSwiZXhwIjoxNjM4MDg4Njg5fQ.9SB2eEdK_h3XpYgPy6TP6PYjAz1u8e7YdFcY-tVSwI8";
 
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.open('PUT', bahanBakuUrl + id, false);
@@ -44,11 +44,13 @@ const EditBahanBaku = () => {
 
   xmlhttp.onreadystatechange = () => {
     if(xmlhttp.readyState === 4) {
+      const bahanBakuData = JSON.parse(xmlhttp.responseText);
       if(xmlhttp.status === 200){
-        const bahanBakuData = JSON.parse(xmlhttp.responseText);
         bahanBaku.name = bahanBakuData.name;
         bahanBaku.stok = bahanBakuData.stok;
         bahanBaku.unit = bahanBakuData.unit
+      } else{
+        alert(bahanBakuData.message);
       }
     }
   }

@@ -23,8 +23,8 @@ const ResepDetail = () => {
 
   xmlhttp.onreadystatechange = () => {
     if(xmlhttp.readyState === 4) {
+      const dorayakiData = JSON.parse(xmlhttp.responseText);
       if(xmlhttp.status === 200){
-        const dorayakiData = JSON.parse(xmlhttp.responseText);
         dorayakiName = dorayakiData.name;
 
         const xmlhttp1 = new XMLHttpRequest();
@@ -32,8 +32,8 @@ const ResepDetail = () => {
 
         xmlhttp1.onreadystatechange = () => {
           if(xmlhttp1.readyState === 4) {
+            const resepData = JSON.parse(xmlhttp1.responseText);
             if(xmlhttp1.status === 200) {
-              const resepData = JSON.parse(xmlhttp1.responseText);
               resepName = resepData.name;
 
               resepData.bahanBaku.forEach(element => {
@@ -45,6 +45,8 @@ const ResepDetail = () => {
         }
 
         xmlhttp1.send();
+      } else{
+        alert(dorayakiData.message);
       }
     }
   }
