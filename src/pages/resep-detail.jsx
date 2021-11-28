@@ -11,9 +11,9 @@ const ResepDetail = () => {
   const dorayakiUrl = baseUrl + '/dorayaki/';
   const resepUrl = baseUrl + '/resep/';
   const { id } = useParams();
+  let resepName = '';
+  let dorayakiName = '';
   const resep = {
-    'Nama Dorayaki' : [],
-    'Nama Resep' : [],
     'Nama Bahan Baku': [],
     'Jumlah Bahan Baku': [],
   }
@@ -25,7 +25,7 @@ const ResepDetail = () => {
     if(xmlhttp.readyState === 4) {
       if(xmlhttp.status === 200){
         const dorayakiData = JSON.parse(xmlhttp.responseText);
-        resep['Nama Dorayaki'].push(dorayakiData.name);
+        dorayakiName = dorayakiData.name;
 
         const xmlhttp1 = new XMLHttpRequest();
         xmlhttp1.open('GET', resepUrl + '/detail/' + dorayakiData.resepId, false);
@@ -34,13 +34,9 @@ const ResepDetail = () => {
           if(xmlhttp1.readyState === 4) {
             if(xmlhttp1.status === 200) {
               const resepData = JSON.parse(xmlhttp1.responseText);
-              resep['Nama Resep'].push(resepData.name);
-              resep['Nama Bahan Baku'].push(null);
-              resep['Jumlah Bahan Baku'].push(null);
+              resepName = resepData.name;
 
               resepData.bahanBaku.forEach(element => {
-              resep['Nama Dorayaki'].push(null);
-              resep['Nama Resep'].push(null);
               resep['Nama Bahan Baku'].push(element.name);
               resep['Jumlah Bahan Baku'].push(element.bahanBakuAmount);
               });
@@ -59,7 +55,12 @@ const ResepDetail = () => {
     <Container>
       <Sidebar/>
       <div className='h3 text-center'>Resep Detail</div>
+      <div className='flex flex-col justify-content-center'>
+        <br/><br/>
+        <div className='h6'>Nama dorayaki : {dorayakiName}</div>
+        <div className='h6'>Nama resep : {resepName}</div>
       <MelihatDaftarData data={resep} />
+      </div>
     </Container>
   )
 }
